@@ -1,0 +1,33 @@
+diff --git a/thirdparty_builtin/googletest-release-1.8.0/googletest/cmake/internal_utils.cmake b/thirdparty_builtin/googletest-release-1.8.0/googletest/cmake/internal_utils.cmake
+index 777b91e..2db8e27 100755
+--- a/thirdparty_builtin/googletest-release-1.8.0/googletest/cmake/internal_utils.cmake
++++ b/thirdparty_builtin/googletest-release-1.8.0/googletest/cmake/internal_utils.cmake
+@@ -21,9 +21,26 @@ macro(fix_default_compiler_settings_)
+     # For MSVC, CMake sets certain flags to defaults we want to override.
+     # This replacement code is taken from sample in the CMake Wiki at
+     # http://www.cmake.org/Wiki/CMake_FAQ#Dynamic_Replace.
++    # For BLT: added modify of C and Fortran flags as well
+     foreach (flag_var
+-             CMAKE_CXX_FLAGS CMAKE_CXX_FLAGS_DEBUG CMAKE_CXX_FLAGS_RELEASE
+-             CMAKE_CXX_FLAGS_MINSIZEREL CMAKE_CXX_FLAGS_RELWITHDEBINFO)
++             # CXX Flags 
++             CMAKE_CXX_FLAGS
++             CMAKE_CXX_FLAGS_DEBUG
++             CMAKE_CXX_FLAGS_RELEASE
++             CMAKE_CXX_FLAGS_MINSIZEREL
++             CMAKE_CXX_FLAGS_RELWITHDEBINFO
++             # C Flags
++             CMAKE_C_FLAGS
++             CMAKE_C_FLAGS_DEBUG
++             CMAKE_C_FLAGS_RELEASE
++             CMAKE_C_FLAGS_MINSIZEREL
++             CMAKE_C_FLAGS_RELWITHDEBINFO
++             # Fortran Flags
++             CMAKE_Fortran_FLAGS
++             CMAKE_Fortran_FLAGS_DEBUG 
++             CMAKE_Fortran_FLAGS_RELEASE
++             CMAKE_Fortran_FLAGS_MINSIZEREL
++             CMAKE_Fortran_FLAGS_RELWITHDEBINFO)
+       if (NOT BUILD_SHARED_LIBS AND NOT gtest_force_shared_crt)
+         # When Google Test is built as a shared library, it should also use
+         # shared runtime libraries.  Otherwise, it may end up with multiple
