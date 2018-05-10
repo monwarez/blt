@@ -132,7 +132,7 @@ macro(blt_add_code_checks)
         elseif(${_ext} IN_LIST arg_F_FILE_EXTS)
             list(APPEND _f_sources ${_relpath})
         else()
-            message(FATAL_ERROR "blt_add_code_checks given source file with unknown file extension.")
+            message(FATAL_ERROR "blt_add_code_checks given source file with unknown file extension: ${_file}.")
         endif()
     endforeach()
 
