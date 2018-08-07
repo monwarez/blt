@@ -278,7 +278,7 @@ message(STATUS "Standard C++${CMAKE_CXX_STANDARD} selected")
 
 blt_append_custom_compiler_flag(
     FLAGS_VAR BLT_ENABLE_ALL_WARNINGS_FLAG
-     DEFAULT    "-Wall -Wextra"
+     DEFAULT    ""
      CLANG      "-Wall -Wextra" 
                        # Additional  possibilities for clang include: 
                        #       "-Wdocumentation -Wdeprecated -Weverything"
